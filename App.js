@@ -5,6 +5,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import HomeScreen from "./Page/HomeScreen";
 import MagicSquare from "./Page/MagicSquare";
 import Onboarding1 from "./Page/Onbarding1";
+import ThemeSwitch from "./Page/ThemeSwitch";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -21,6 +22,13 @@ export default function App() {
         <Stack.Screen
           name="Onboarding1"
           component={Onboarding1}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ThemeSwitch"
+          component={ThemeSwitch}
           options={{
             headerShown: false,
           }}
