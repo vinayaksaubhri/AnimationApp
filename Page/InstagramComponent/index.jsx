@@ -1,12 +1,24 @@
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import { useCallback, useRef } from "react";
+import {
+  Dimensions,
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   GestureHandlerRootView,
   PinchGestureHandler,
+  TapGestureHandler,
 } from "react-native-gesture-handler";
+
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
+  withSpring,
   withTiming,
 } from "react-native-reanimated";
 
@@ -43,15 +55,67 @@ const InstagramComponent = () => {
       ],
     };
   });
+  const scaleHeartImage = useSharedValue(0);
+  const scaleLikeImage = useSharedValue(0);
+  const animatedHeartStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: Math.max(scaleHeartImage.value, 0) }],
+    };
+  });
+  const animatedLikeStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: Math.max(scaleLikeImage.value, 0) }],
+    };
+  });
+  const doubleTapRef = useRef();
+  const onDoubleTap = useCallback(() => {
+    scaleHeartImage.value = withSpring(1, undefined, () => {
+      scaleHeartImage.value = withDelay(500, withSpring(0));
+    });
+  }, []);
+  const onSingleTap = useCallback(() => {
+    scaleLikeImage.value = withSpring(1, undefined, () => {
+      scaleLikeImage.value = withDelay(500, withSpring(0));
+    });
+  }, []);
   return (
     <View style={[styles.container]}>
+      <Text style={[styles.text]}>
+        Pinch to zoom, single or double tap to Like
+      </Text>
       <GestureHandlerRootView>
         <PinchGestureHandler onGestureEvent={pinchHandler}>
-          <Animated.View style={{ height: imageHeight, width: imageWidth }}>
-            <Animated.Image
-              source={require("./Assets/image.jpg")}
-              style={[styles.image, animatedStyle]}
-            />
+          <Animated.View
+            style={{
+              height: imageHeight,
+              width: imageWidth,
+              marginTop: 50,
+            }}
+          >
+            <TapGestureHandler waitFor={doubleTapRef} onActivated={onSingleTap}>
+              <TapGestureHandler
+                maxDelayMs={250}
+                ref={doubleTapRef}
+                numberOfTaps={2}
+                onActivated={onDoubleTap}
+              >
+                <Animated.View>
+                  <Animated.Image
+                    source={require("./Assets/image.jpg")}
+                    style={[styles.image, animatedStyle]}
+                  />
+
+                  <Animated.Image
+                    source={require("./Assets/heart.png")}
+                    style={[styles.heart, animatedHeartStyle]}
+                  />
+                  <Animated.Image
+                    source={require("./Assets/like.png")}
+                    style={[styles.heart, animatedLikeStyle]}
+                  />
+                </Animated.View>
+              </TapGestureHandler>
+            </TapGestureHandler>
           </Animated.View>
         </PinchGestureHandler>
       </GestureHandlerRootView>
@@ -66,10 +130,23 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   image: {
-    height: height * 0.6,
-    width: width * 0.8,
-    // height,
-    // width,
+    height: imageHeight,
+    width: imageWidth,
     borderRadius: 10,
+  },
+  heart: {
+    position: "absolute",
+    height: 100,
+    width: 100,
+    top: (imageHeight - 100) / 2,
+    left: (imageWidth - 100) / 2,
+    shadowOffset: { width: 0, height: 20 },
+    shadowOpacity: 0.3,
+    shadowRadius: 35,
+  },
+  imageContainer: {},
+  text: {
+    fontSize: 20,
+    // paddingBottom: 40,
   },
 });
