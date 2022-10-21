@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import HomeScreen from "./Page/HomeScreen";
+import InstagramComponent from "./Page/InstagramComponent";
 import MagicSquare from "./Page/MagicSquare";
 import Onboarding1 from "./Page/Onbarding1";
 import ThemeSwitch from "./Page/ThemeSwitch";
@@ -32,6 +33,10 @@ export default function App() {
           options={{
             headerShown: false,
           }}
+        />
+        <Stack.Screen
+          name="InstagramComponent"
+          component={InstagramComponent}
         />
       </Stack.Navigator>
     </NavigationContainer>

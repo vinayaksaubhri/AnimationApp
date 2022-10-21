@@ -8,7 +8,7 @@ import Animated, {
 } from "react-native-reanimated";
 
 const { height, width } = Dimensions.get("window");
-console.log(height);
+
 const SIZE = width * 0.7;
 const Page = ({ index, title, translateX }) => {
   const InputRate = [(index - 1) * width, index * width, (index + 1) * width];
