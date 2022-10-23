@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { Dimensions, StatusBar, StyleSheet, Text, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -30,9 +30,12 @@ const ColorPicker = () => {
   const animatedStyle = useAnimatedStyle(() => {
     return { backgroundColor: pickedColor.value };
   });
+  const theme = "dark";
   return (
-    <>
+    <View style={{ flex: 1 }}>
+      <StatusBar barStyle={"light-content"} />
       <View style={[styles.topContainer]}>
+        <Text style={[styles.text]}>Color Picker</Text>
         <Animated.View style={[styles.circle, animatedStyle]}></Animated.View>
       </View>
       <View style={[styles.bottomContainer]}>
@@ -45,7 +48,7 @@ const ColorPicker = () => {
           onColorChange={onColorChange}
         />
       </View>
-    </>
+    </View>
   );
 };
 export default ColorPicker;
@@ -57,6 +60,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: BACKGROUND_COLOR,
+  },
+  text: {
+    fontSize: 30,
+    textTransform: "uppercase",
+    fontWeight: "700",
+    letterSpacing: 10,
+    marginBottom: 35,
+    color: "#F8F8F8",
   },
   bottomContainer: {
     flex: 1,
