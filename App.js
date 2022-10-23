@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet, View } from "react-native";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { StyleSheet } from "react-native";
+import ColorPicker from "./Page/ColorPicker";
 import HomeScreen from "./Page/HomeScreen";
 import InstagramComponent from "./Page/InstagramComponent";
 import MagicSquare from "./Page/MagicSquare";
@@ -13,11 +13,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-      // screenOptions={{
-      //   headerShown: false,
-      // }}
-      >
+      <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="MagicSquare" component={MagicSquare} />
         <Stack.Screen
@@ -37,6 +33,13 @@ export default function App() {
         <Stack.Screen
           name="InstagramComponent"
           component={InstagramComponent}
+        />
+        <Stack.Screen
+          name="ColorPicker"
+          component={ColorPicker}
+          options={{
+            headerShown: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
