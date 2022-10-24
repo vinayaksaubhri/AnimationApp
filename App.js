@@ -6,6 +6,7 @@ import HomeScreen from "./Page/HomeScreen";
 import InstagramComponent from "./Page/InstagramComponent";
 import MagicSquare from "./Page/MagicSquare";
 import Onboarding1 from "./Page/Onboarding1";
+import OnBoardingSkateboard from "./Page/OnBoardingSkateboard";
 import ThemeSwitch from "./Page/ThemeSwitch";
 
 export default function App() {
@@ -37,6 +38,13 @@ export default function App() {
         <Stack.Screen
           name="ColorPicker"
           component={ColorPicker}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="OnBoardingSkateboard"
+          component={OnBoardingSkateboard}
           options={{
             headerShown: false,
           }}

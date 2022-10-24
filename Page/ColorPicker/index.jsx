@@ -34,7 +34,9 @@ const ColorPicker = () => {
   const theme = "dark";
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar barStyle={"light-content"} />
+      <StatusBar
+        barStyle={theme === "dark" ? "light-content" : "dark-content"}
+      />
       <View style={[styles.topContainer]}>
         <Text style={[styles.text]}>Color Picker</Text>
         <Animated.View style={[styles.circle, animatedStyle]}></Animated.View>
