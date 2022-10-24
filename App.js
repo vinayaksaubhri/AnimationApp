@@ -5,7 +5,7 @@ import ColorPicker from "./Page/ColorPicker";
 import HomeScreen from "./Page/HomeScreen";
 import InstagramComponent from "./Page/InstagramComponent";
 import MagicSquare from "./Page/MagicSquare";
-import Onboarding1 from "./Page/Onbarding1";
+import Onboarding1 from "./Page/Onboarding1";
 import ThemeSwitch from "./Page/ThemeSwitch";
 
 export default function App() {

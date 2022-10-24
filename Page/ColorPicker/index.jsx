@@ -27,6 +27,7 @@ const ColorPicker = () => {
     "worklet";
     pickedColor.value = color;
   });
+
   const animatedStyle = useAnimatedStyle(() => {
     return { backgroundColor: pickedColor.value };
   });
