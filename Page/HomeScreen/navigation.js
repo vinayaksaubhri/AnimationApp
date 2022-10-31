@@ -5,4 +5,5 @@ export const NavigationObject = [
   { title: "Instagram Animation", navLink: "InstagramComponent" },
   { title: "Color Picker", navLink: "ColorPicker" },
   { title: "OnBoarding Skateboard ", navLink: "OnBoardingSkateboard" },
+  { title: "React Native ", navLink: "ReactNative" },
 ];
