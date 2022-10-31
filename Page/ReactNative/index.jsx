@@ -1,17 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, View } from "react-native";
 import Background from "./Components/Background";
 import Svg, { Path } from "react-native-svg";
 import { height, MARGIN, PATH, vHeight, vWidth, width } from "./Constants";
 import AnimatedStroke from "./Components/AnimatedStroke";
-import { Easing, useSharedValue, withTiming } from "react-native-reanimated";
+import {
+  Easing,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from "react-native-reanimated";
 import { useEffect } from "react";
 
 const ReactNative = () => {
   const progress = useSharedValue(0);
 
-  useEffect(() => {
-    progress.value = withTiming(1, { duration: 4000, easing: Easing.linear });
-  }, []);
+  progress.value = withRepeat(
+    withTiming(1, { duration: 4000, easing: Easing.linear }),
+    -1,
+    true
+  );
+
   return (
     <View style={styles.layer}>
       <Background />
@@ -39,5 +47,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  button: {
+    position: "absolute",
+    bottom: 0,
+    top: 0,
   },
 });
