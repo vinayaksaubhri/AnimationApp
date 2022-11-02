@@ -9,7 +9,6 @@ import {
   withRepeat,
   withTiming,
 } from "react-native-reanimated";
-import { useEffect } from "react";
 
 const ReactNative = () => {
   const progress = useSharedValue(0);
@@ -23,6 +22,7 @@ const ReactNative = () => {
   return (
     <View style={styles.layer}>
       <Background />
+
       <Svg
         width={width}
         height={height}
@@ -47,10 +47,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  button: {
-    position: "absolute",
-    bottom: 0,
-    top: 0,
   },
 });

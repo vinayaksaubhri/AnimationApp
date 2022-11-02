@@ -6,4 +6,5 @@ export const NavigationObject = [
   { title: "Color Picker", navLink: "ColorPicker" },
   { title: "OnBoarding Skateboard ", navLink: "OnBoardingSkateboard" },
   { title: "React Native ", navLink: "ReactNative" },
+  { title: "Sticky Square", navLink: "StickySquare" },
 ];

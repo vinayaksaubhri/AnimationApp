@@ -8,6 +8,7 @@ import MagicSquare from "./Page/MagicSquare";
 import Onboarding1 from "./Page/Onboarding1";
 import OnBoardingSkateboard from "./Page/OnBoardingSkateboard";
 import ReactNative from "./Page/ReactNative";
+import StickySquare from "./Page/StickySquare";
 import ThemeSwitch from "./Page/ThemeSwitch";
 
 export default function App() {
@@ -53,6 +54,13 @@ export default function App() {
         <Stack.Screen
           name="ReactNative"
           component={ReactNative}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="StickySquare"
+          component={StickySquare}
           options={{
             headerShown: false,
           }}
