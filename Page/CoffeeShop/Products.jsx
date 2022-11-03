@@ -36,7 +36,6 @@ const Product = ({ product, index, x }) => {
   );
 };
 const Products = ({ x }) => {
-  console.log(x);
   return (
     <View style={styles.container} pointerEvents="none">
       {products.map((product, index) => (
