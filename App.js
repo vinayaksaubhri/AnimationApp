@@ -10,63 +10,74 @@ import OnBoardingSkateboard from "./Page/OnBoardingSkateboard";
 import ReactNative from "./Page/ReactNative";
 import StickySquare from "./Page/StickySquare";
 import ThemeSwitch from "./Page/ThemeSwitch";
+import PhilzCoffee from "./Page/CoffeeShop/PhilzCoffee";
+import LoadAssets from "./LoadAssets";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="MagicSquare" component={MagicSquare} />
-        <Stack.Screen
-          name="Onboarding1"
-          component={Onboarding1}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="ThemeSwitch"
-          component={ThemeSwitch}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="InstagramComponent"
-          component={InstagramComponent}
-        />
-        <Stack.Screen
-          name="ColorPicker"
-          component={ColorPicker}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="OnBoardingSkateboard"
-          component={OnBoardingSkateboard}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="ReactNative"
-          component={ReactNative}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="StickySquare"
-          component={StickySquare}
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <LoadAssets>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="MagicSquare" component={MagicSquare} />
+          <Stack.Screen
+            name="Onboarding1"
+            component={Onboarding1}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="ThemeSwitch"
+            component={ThemeSwitch}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="InstagramComponent"
+            component={InstagramComponent}
+          />
+          <Stack.Screen
+            name="ColorPicker"
+            component={ColorPicker}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="OnBoardingSkateboard"
+            component={OnBoardingSkateboard}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="ReactNative"
+            component={ReactNative}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="StickySquare"
+            component={StickySquare}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="CoffeeShop"
+            component={PhilzCoffee}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </LoadAssets>
   );
 }
 const styles = StyleSheet.create({

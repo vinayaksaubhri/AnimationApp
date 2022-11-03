@@ -7,4 +7,5 @@ export const NavigationObject = [
   { title: "OnBoarding Skateboard ", navLink: "OnBoardingSkateboard" },
   { title: "React Native ", navLink: "ReactNative" },
   { title: "Sticky Square", navLink: "StickySquare" },
+  { title: "Coffee Shop", navLink: "CoffeeShop" },
 ];
