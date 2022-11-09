@@ -8,6 +8,9 @@ const LoadAssets = ({ children, font }) => {
     "GothamRounded-Bold": require("./Fonts/GothamRounded-Bold.otf"),
     "GothamRounded-Light": require("./Fonts/GothamRounded-Light.otf"),
     "GothamRounded-Medium": require("./Fonts/GothamRounded-Medium.otf"),
+    "SFProDisplay-Medium": require("./Fonts/SF-Pro-Display-Medium.otf"),
+    "SFProDisplay-Bold": require("./Fonts/SF-Pro-Display-Bold.otf"),
+    Antpolt: require("./Fonts/antpoltsemicond-bolditalic.ttf"),
   });
   console.log("assets load", fontsLoaded);
   useEffect(() => {
