@@ -64,7 +64,7 @@ const Pizza = ({ id, index, asset, x }) => {
       transform: [{ scale }, { translateY }, { translateX }],
     };
   });
-  console.log(Platform.OS, inputRange);
+
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={() => navigate("PizzaDetail", { id })}>

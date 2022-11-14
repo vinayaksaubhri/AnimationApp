@@ -4,12 +4,23 @@ import Pizzas from "./Pizzas";
 import PizzaDetail from "./PizzaDetail";
 import { useState } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { useAssets } from "expo-asset";
+import { assets as asset } from "./Config";
 
 const Stack = createSharedElementStackNavigator();
 const PizzaNavigator = () => {
   const [loading, setLoading] = useState(false);
+  const [assets, error] = useAssets([
+    asset.plate,
+    ...asset.pizza,
+    ...asset.bread,
+    ...asset.basil,
+    ...asset.broccoli,
+    ...asset.mushroom,
+    ...asset.onion,
+  ]);
 
-  return loading ? (
+  return !assets ? (
     <View style={styles.container}>
       <ActivityIndicator
         size={"large"}
@@ -32,7 +43,8 @@ const PizzaNavigator = () => {
         name="PizzaDetail"
         component={PizzaDetail}
         sharedElements={(route) => {
-          return [route.params.id];
+          const { id } = route.params;
+          return [id];
         }}
       />
     </Stack.Navigator>

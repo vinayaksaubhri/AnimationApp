@@ -81,9 +81,11 @@ export default function App() {
           <Stack.Screen
             name="PizzaAnimation"
             component={PizzaNavigator}
-            options={{
-              headerShown: false,
-            }}
+            options={
+              {
+                // headerShown: false,
+              }
+            }
           />
         </Stack.Navigator>
       </NavigationContainer>
