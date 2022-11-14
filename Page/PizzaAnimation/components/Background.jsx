@@ -37,12 +37,6 @@ const images = [
   assets.extra[1],
 ];
 
-// interface IngredientProps {
-//   source: typeof images[0];
-//   index: number;
-//   total: number;
-// }
-
 const Ingredient = ({ index, source, total }) => {
   const dim = Image.resolveAssetSource(source);
   const w = 50;
@@ -59,10 +53,6 @@ const Ingredient = ({ index, source, total }) => {
   };
   return <Image source={source} style={style} />;
 };
-
-// interface BackgroundProps {
-//   x: Animated.SharedValue<number>;
-// }
 
 const Background = ({ x }) => {
   const style = useAnimatedStyle(() => ({

@@ -11,12 +11,20 @@ import Animated, {
   useSharedValue,
   withDecay,
 } from "react-native-reanimated";
-const CustomScrollView = ({ children, style, horizontal }) => {
+import { PIZZA_SIZE } from "../Config";
+const CustomScrollView = ({ children, style, horizontal, pizza }) => {
   const styles = StyleSheet.create({
-    container: { flexDirection: horizontal ? "row" : "column" },
+    container: {
+      flexDirection: horizontal ? "row" : "column",
+      overflow: "visible",
+    },
   });
   const translateX = useSharedValue(0);
   const clampedTranslateX = useDerivedValue(() => {
+    if (pizza) {
+      const Maxlength = -(PIZZA_SIZE * 5);
+      return Math.max(Math.min(translateX.value, 0), Maxlength);
+    }
     const Maxlength = -(80 * 2);
     return Math.max(Math.min(translateX.value, 0), Maxlength);
   });

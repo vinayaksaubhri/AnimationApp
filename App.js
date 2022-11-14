@@ -12,8 +12,9 @@ import StickySquare from "./Page/StickySquare";
 import ThemeSwitch from "./Page/ThemeSwitch";
 import PhilzCoffee from "./Page/CoffeeShop/PhilzCoffee";
 import LoadAssets from "./LoadAssets";
-import PizzaAnimation from "./Page/PizzaAnimation/index";
-import Pizza from "./Page/PizzaAnimation/Pizza";
+import Pizzas from "./Page/PizzaAnimation/Pizzas";
+import PizzaNavigator from "./Page/PizzaAnimation";
+// import PizzaAnimation from "./Page/PizzaAnimation/index";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -79,11 +80,9 @@ export default function App() {
           />
           <Stack.Screen
             name="PizzaAnimation"
-            component={PizzaAnimation}
+            component={PizzaNavigator}
             options={{
-              gestureEnabled: false,
-              cardOverlayEnabled: true,
-              cardStyle: { backgroundColor: "transparent" },
+              headerShown: false,
             }}
           />
         </Stack.Navigator>
